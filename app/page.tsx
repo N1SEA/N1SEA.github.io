@@ -1,65 +1,111 @@
-import Image from "next/image";
+﻿import ProjectCard from '@/components/ProjectCard'
+import { projects } from '@/data/projects'
 
 export default function Home() {
+  const skills = [
+    { category: 'Frontend', items: ['React', 'Next.js', 'TypeScript', 'Tailwind CSS', 'Redux', 'React Query'] },
+    { category: 'Backend', items: ['Node.js', 'Express', 'PostgreSQL', 'MongoDB', 'Prisma'] },
+    { category: 'Tools & Misc', items: ['Git', 'Docker', 'Webpack', 'Jest', 'REST API', 'GraphQL'] },
+  ]
+
   return (
-    <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex min-h-screen w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
+    <main className="w-full">
+      {/* Hero Section */}
+      <section className="relative overflow-hidden pt-20 pb-32 px-6 bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 text-white">
+        <div className="max-w-4xl mx-auto">
+          <div className="inline-block mb-6 px-4 py-2 bg-blue-500/20 border border-blue-400/30 rounded-full">
+            <span className="text-sm font-medium text-blue-200">👋 Ласкаво просимо!</span>
+          </div>
+          <h1 className="text-5xl md:text-6xl font-bold mb-6 leading-tight">
+            Привіт! Я <span className="bg-gradient-to-r from-blue-400 to-cyan-400 bg-clip-text text-transparent">Антон</span>
           </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
+          <p className="text-xl md:text-2xl text-slate-300 mb-8 leading-relaxed">
+            Frontend розробник з досвідом у створенні сучасних, чутливих веб-додатків на React та Next.js
+          </p>
+          <div className="flex flex-wrap gap-4">
+            <a href="#projects" className="btn btn-primary text-lg px-8 py-3">
+              Переглянути проекти
+            </a>
+            <a href="#contact" className="btn btn-outline border-white text-white hover:bg-white/10 text-lg px-8 py-3">
+              Зв'язатися
+            </a>
+          </div>
+        </div>
+      </section>
+
+      {/* About Section */}
+      <section className="py-20 px-6 bg-white">
+        <div className="max-w-4xl mx-auto">
+          <h2 className="section-title">Про мене</h2>
+          <p className="text-lg text-slate-600 mb-6 leading-relaxed">
+            Я натхненний Front-end розробник з 3+ років досвіду у розробці масштабованих веб-додатків. Спеціалізуюсь на створенні інтуїтивних користувацьких інтерфейсів, використовуючи новітні технології та найкращі практики.
+          </p>
+          <p className="text-lg text-slate-600 leading-relaxed">
+            Коли я не працюю над кодом, я люблю вчитися новим технологіям, брати участь у open-source проектах та допомагати іншим розробникам.
           </p>
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+      </section>
+
+      {/* Skills Section */}
+      <section id="skills" className="py-20 px-6 bg-slate-50">
+        <div className="max-w-4xl mx-auto">
+          <h2 className="section-title">Мої навички</h2>
+          <div className="grid md:grid-cols-3 gap-8">
+            {skills.map((skillGroup) => (
+              <div key={skillGroup.category} className="bg-white p-6 rounded-xl border border-slate-200 hover:border-blue-400 transition-colors">
+                <h3 className="text-xl font-bold text-slate-900 mb-4">{skillGroup.category}</h3>
+                <ul className="space-y-3">
+                  {skillGroup.items.map((skill) => (
+                    <li key={skill} className="flex items-center gap-3 text-slate-700">
+                      <span className="w-2 h-2 bg-blue-600 rounded-full"></span>
+                      {skill}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
+          </div>
         </div>
-      </main>
-    </div>
-  );
+      </section>
+
+      {/* Projects Section */}
+      <section id="projects" className="py-20 px-6 bg-white">
+        <div className="max-w-4xl mx-auto">
+          <h2 className="section-title">Мої проекти</h2>
+          <p className="text-slate-600 text-lg mb-12">
+            Ось деякі з моїх останніх робіт, які демонструють мої навички розробки
+          </p>
+          <div className="grid gap-6">
+            {projects.map(project => (
+              <ProjectCard key={project.title} {...project} />
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Contact Section */}
+      <section id="contact" className="py-20 px-6 bg-slate-50">
+        <div className="max-w-4xl mx-auto text-center">
+          <h2 className="section-title">Давайте працювати разом</h2>
+          <p className="text-lg text-slate-600 mb-8">
+            У вас є цікавий проект? Я завжди відкритий для нових можливостей!
+          </p>
+          <div className="flex flex-wrap justify-center gap-6">
+            <a href="mailto:bodnarashek93@gmail.com" className="btn btn-primary text-lg px-8 py-3">
+              📧 Email
+            </a>
+            <a href="https://github.com/N1SEA" target="_blank" rel="noopener noreferrer" className="btn btn-secondary text-lg px-8 py-3">
+              🐙 GitHub
+            </a>
+            <a href="https://linkedin.com/in/username" target="_blank" rel="noopener noreferrer" className="btn btn-secondary text-lg px-8 py-3">
+              💼 LinkedIn
+            </a>
+            <a href="https://twitter.com/username" target="_blank" rel="noopener noreferrer" className="btn btn-secondary text-lg px-8 py-3">
+              𝕏 Twitter
+            </a>
+          </div>
+        </div>
+      </section>
+    </main>
+  )
 }
