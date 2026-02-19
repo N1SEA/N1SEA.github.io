@@ -1,4 +1,4 @@
-import '../globals.css'
+import './globals.css'
 import Link from "next/link";
 import CursorGradient from '@/components/CursorGradient';
 import { NextIntlClientProvider } from 'next-intl';
@@ -8,32 +8,17 @@ import { notFound } from 'next/navigation';
 
 const locales = ['en', 'uk'];
 
-export function generateStaticParams() {
-  return locales.map((locale) => ({ locale }));
-}
-
-export async function generateMetadata({ params }: {params: Promise<{ locale: string }> }) {
-  const { locale } = await params;
-
-  return {
-    title: locale === 'uk' ? 'Антон | Frontend розробник' : 'Anton | Frontend Developer',
-    description: 'Portfolio Frontend Developer React & Next.js',
-  };
-}
 
 export default async function RootLayout({
   children,
-  params,
 }: {
   children: React.ReactNode;
-  params: Promise<{ locale: string }>
 }) {
-   const { locale } = await params
+  // Временно ставим 'en' как основную локаль, пока нет папок
+  const locale = 'en'; 
 
-  if (!locales.includes(locale)) notFound();
-
-  // 👉 СТАТИЧЕСКИЙ импорт переводов
-  const messages = (await import(`../../messages/${locale}.json`)).default;
+  // Путь теперь на один уровень вверх (из /app в корень)
+  const messages = (await import(`../messages/${locale}.json`)).default;
 
   return (
     <html lang={locale} className="scroll-smooth">
