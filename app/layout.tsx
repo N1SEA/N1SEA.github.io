@@ -2,10 +2,9 @@ import './globals.css'
 import Link from "next/link";
 import CursorGradient from '@/components/CursorGradient';
 
-// Стандартные метаданные Next.js (теперь без динамики)
 export const metadata = {
-  title: 'ANTON | Frontend Developer',
-  description: 'Portfolio Frontend Developer React & Next.js',
+  title: 'АНТОН | Frontend розробник',
+  description: 'Портфоліо Frontend розробника: React, Next.js, TypeScript',
 };
 
 export default function RootLayout({
@@ -14,9 +13,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className="scroll-smooth">
+    <html lang="uk" className="scroll-smooth">
       <body className="bg-[#030712] text-slate-200 antialiased">
-        {/* Градиент за курсором остается */}
         <CursorGradient />
 
         <header className="sticky top-0 z-50 bg-[#030712]/60 backdrop-blur-xl border-b border-purple-500/10">
@@ -28,10 +26,11 @@ export default function RootLayout({
               ANTON
             </Link>
 
-            {/* Блок навигации (можно добавить ссылки на секции позже) */}
-            <div className="flex items-center gap-6 md:gap-10">
-              <Link href="#projects" className="hover:text-purple-400 transition-colors">Projects</Link>
-              <Link href="#contact" className="hover:text-purple-400 transition-colors">Contact</Link>
+            <div className="flex items-center gap-6 md:gap-10 font-medium text-sm">
+              <Link href="#skills" className="hover:text-purple-400 transition-colors">Навички</Link>
+              <Link href="#roadmap" className="hover:text-purple-400 transition-colors">Roadmap</Link>
+              <Link href="#projects" className="hover:text-purple-400 transition-colors">Проекти</Link>
+              <Link href="#contact" className="hover:text-purple-400 transition-colors">Контакти</Link>
             </div>
           </nav>
         </header>
