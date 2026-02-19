@@ -2,7 +2,7 @@
 import createNextIntlPlugin from 'next-intl/plugin';
 import { NextConfig } from 'next';
 
-const withNextIntl = createNextIntlPlugin('./i18n.ts'); // Теперь указываем на корень
+const withNextIntl = createNextIntlPlugin();
 
 const nextConfig: NextConfig = {
   output: 'export',
