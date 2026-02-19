@@ -5,6 +5,7 @@ import { NextIntlClientProvider } from 'next-intl';
 import LangSwitcher from '@/components/LangSwitcher';
 import { notFound } from 'next/navigation';
 
+
 const locales = ['en', 'uk'];
 
 export function generateStaticParams() {
