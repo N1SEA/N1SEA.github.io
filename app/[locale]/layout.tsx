@@ -6,6 +6,10 @@ import { getMessages, getTranslations } from 'next-intl/server';
 import LangSwitcher from '@/components/LangSwitcher';
 import { notFound } from 'next/navigation';
 
+export function generateStaticParams() {
+  return [{ locale: 'en' }, { locale: 'uk' }];
+}
+
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }) {
   const { locale } = await params;
   // Можно добавить переводы для title/description, если создать секцию Metadata в JSON
