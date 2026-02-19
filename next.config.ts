@@ -1,15 +1,13 @@
+// next.config.ts
+import createNextIntlPlugin from 'next-intl/plugin';
 import { NextConfig } from 'next';
 
-
+const withNextIntl = createNextIntlPlugin('./i18n.ts'); // Теперь указываем на корень
 
 const nextConfig: NextConfig = {
-  output: 'export', // Теперь TS видит, что это именно то значение, которое нужно
-  images: {
-    unoptimized: true,
-  },
-  typescript: {
-    ignoreBuildErrors: true, // Игнорируем ошибки типов, чтобы они не мешали билду
-  },
+  output: 'export',
+  images: { unoptimized: true },
+  typescript: { ignoreBuildErrors: true },
 };
 
-export default nextConfig;
+export default withNextIntl(nextConfig);
