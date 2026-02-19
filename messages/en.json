@@ -1,0 +1,63 @@
+{
+  "Layout": {
+    "nav": {
+      "skills": "Skills",
+      "roadmap": "Roadmap",
+      "projects": "Projects",
+      "contact": "Contact"
+    },
+    "footer": {
+      "rights": "All rights reserved"
+    }
+  },
+  "Index": {
+    "hero": {
+      "welcome": "👋 Welcome to my portfolio!",
+      "greeting": "Hi! I'm",
+      "name": "Anton",
+      "description": "A Frontend Developer experienced in building modern, responsive web applications with React and Next.js",
+      "viewProjects": "View Projects",
+      "contact": "Get in Touch"
+    },
+    "about": {
+      "title": "About Me",
+      "p1": "I am a passionate <span>Front-end Developer</span> with over 3 years of experience in developing scalable web applications. I specialize in creating intuitive user interfaces.",
+      "p2": "When I'm not coding, I enjoy learning new technologies, contributing to open-source projects, and helping other developers grow."
+    },
+    "skills": {
+      "title": "My Skills",
+      "frontend": "Frontend",
+      "backend": "Backend",
+      "tools": "Tools & Misc"
+    },
+    "projects": {
+      "title": "My Projects",
+      "subtitle": "Here are some of my recent works"
+    },
+    "contact": {
+      "title": "Let's Work Together",
+      "description": "Have an interesting project in mind? I'm always open to new opportunities!"
+    }
+  },
+  "Roadmap": {
+    "title": "My Journey",
+    "items": {
+      "2022": {
+        "title": "First Code",
+        "desc": "Wrote my first Hello World in HTML/CSS and fell in love with web development."
+      },
+      "2023": {
+        "title": "React & Ecosystem",
+        "desc": "Deep dive into React, Redux, and first freelance projects."
+      },
+      "2024": {
+        "title": "Next.js & Fullstack",
+        "desc": "Switching to Next.js, working with databases, and performance optimization."
+      },
+      "2025": {
+        "title": "Senior Level",
+        "desc": "Developing complex architectural solutions and mentoring."
+      }
+    }
+  }
+}
