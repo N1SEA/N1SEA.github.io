@@ -1,12 +1,9 @@
-﻿
+﻿'use client'
+
 import ProjectCard from '@/components/ProjectCard'
 import Roadmap from '@/components/Roadmap'
 import { projects } from '@/data/projects'
 import { useTranslations } from 'next-intl';
-
-export function generateStaticParams() {
-  return [{ locale: 'en' }, { locale: 'uk' }];
-}
 
 export default function Home() {
   const t = useTranslations('Index');
