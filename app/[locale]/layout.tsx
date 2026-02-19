@@ -11,8 +11,8 @@ export function generateStaticParams() {
   return locales.map((locale) => ({ locale }));
 }
 
-export async function generateMetadata({ params }: { params: { locale: string } }) {
-  const { locale } = params;
+export async function generateMetadata({ params }: {params: Promise<{ locale: string }> }) {
+  const { locale } = await params;
 
   return {
     title: locale === 'uk' ? 'Антон | Frontend розробник' : 'Anton | Frontend Developer',
@@ -25,9 +25,9 @@ export default async function RootLayout({
   params,
 }: {
   children: React.ReactNode;
-  params: { locale: string };
+  params: Promise<{ locale: string }>
 }) {
-  const { locale } = params;
+   const { locale } = await params
 
   if (!locales.includes(locale)) notFound();
 
