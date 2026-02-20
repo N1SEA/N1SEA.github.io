@@ -39,7 +39,7 @@ export function SkillsSection() {
                 {group.title}
               </h3>
               <div className="flex flex-wrap gap-2">
-                {group.items?.map((skill) => (
+                {group.skills?.map((skill) => (
                   <Badge
                     key={skill}
                     variant="outline"
