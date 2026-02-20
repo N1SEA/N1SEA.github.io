@@ -3,73 +3,42 @@
 @tailwind utilities;
 
 @layer base {
-  html {
-  scroll-behavior: smooth;
+  :root {
+    cursor: none !important;
+    --background: 0 0% 100%;
+    --foreground: 222.2 84% 4.9%;
+    /* ... інші світлі змінні залиш як є ... */
+    --primary: 271 91% 65%; /* #9333ea */
+    --primary-foreground: 210 40% 98%;
+    --radius: 0.75rem;
   }
-  
-  body {
-    @apply bg-[#030712] text-slate-200 overflow-x-hidden;
-    margin: 0;
-    cursor: none;
+
+  .dark {
+    /* Твій колір фону #030712 переведений в HSL */
+    --background: 226 70% 4%; 
+    --foreground: 210 40% 98%;
+
+    --card: 226 70% 6%; /* Трохи світліше за фон для карток */
+    --card-foreground: 210 40% 98%;
+
+    /* Твій фіолетовий #9333ea в HSL */
+    --primary: 271 81% 56%; 
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 217.2 32.6% 12%;
+    --secondary-foreground: 210 40% 98%;
+
+    --muted: 217.2 32.6% 12%;
+    --muted-foreground: 215 20.2% 65.1%;
+
+    --accent: 271 81% 56%; /* Фіолетовий акцент */
+    --accent-foreground: 210 40% 98%;
+
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 271 81% 56%;
+  }
+  a, button, input, select, textarea {
+    cursor: none !important;
   }
 }
-
-/* Анимация плавного плавания */
-@keyframes float {
-  0% { transform: translate(0, 0) scale(1); }
-  33% { transform: translate(10%, -10%) scale(1.2); }
-  66% { transform: translate(-5%, 15%) scale(0.8); }
-  100% { transform: translate(0, 0) scale(1); }
-}
-
-/* Контейнер для кругов */
-.smoke-container {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: 0;
-  overflow: hidden;
-  pointer-events: none;
-  filter: blur(100px); /* Сильное размытие для эффекта дыма */
-}
-
-.smoke-blob {
-  opacity: 0.15; /* Сделали фон очень мягким, чтобы линия выделялась */
-  filter: blur(140px);
-}
-
-/* Разные круги */
-.blob-1 {
-  width: 500px;
-  height: 500px;
-  background: #9333ea;
-  top: -100px;
-  left: -100px;
-  animation-duration: 25s;
-}
-
-.blob-2 {
-  width: 400px;
-  height: 400px;
-  background: #db2777;
-  bottom: -50px;
-  right: -50px;
-  animation-duration: 30s;
-  animation-delay: -5s;
-}
-
-.blob-3 {
-  width: 300px;
-  height: 300px;
-  background: #4f46e5;
-  top: 40%;
-  left: 30%;
-  animation-duration: 20s;
-  animation-delay: -10s;
-}
-
-a, button {
-    cursor: none;
-  }

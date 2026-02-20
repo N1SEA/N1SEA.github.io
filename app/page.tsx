@@ -3,13 +3,9 @@ import ProjectCard from '@/components/ProjectCard'
 import Roadmap from '@/components/Roadmap'
 import { projects } from '@/data/projects'
 import { useEffect } from 'react'
+import { SkillsSection as Skills } from '@/components/Skills'
 
 export default function Home() {
-  const skills = [
-    { category: 'Frontend', items: ['React', 'Next.js', 'TypeScript', 'Tailwind CSS', 'Redux', 'React Query'] },
-    { category: 'Backend', items: ['Node.js', 'Express', 'PostgreSQL', 'MongoDB', 'Prisma'] },
-    { category: 'Інструменти', items: ['Git', 'Docker', 'Webpack', 'Jest', 'REST API', 'GraphQL'] },
-  ]
   useEffect(() => {
 
   window.scrollTo(0, 0);
@@ -59,24 +55,7 @@ export default function Home() {
 
       {/* Skills Section */}
       <section id="skills" className="py-24 px-6 relative z-10">
-        <div className="max-w-4xl mx-auto">
-          <h2 className="text-4xl font-bold mb-12 text-white">Стек технологій</h2>
-          <div className="grid md:grid-cols-3 gap-6">
-            {skills.map((skillGroup) => (
-              <div key={skillGroup.category} className="bg-white/5 backdrop-blur-xl border border-white/10 p-8 rounded-3xl hover:border-purple-500/40 transition-all group">
-                <h3 className="text-xl font-bold text-purple-400 mb-6 group-hover:text-purple-300 transition-colors">{skillGroup.category}</h3>
-                <ul className="space-y-4">
-                  {skillGroup.items.map((skill) => (
-                    <li key={skill} className="flex items-center gap-3 text-slate-300">
-                      <span className="w-1.5 h-1.5 bg-purple-500 rounded-full shadow-[0_0_8px_rgba(168,85,247,0.8)]"></span>
-                      {skill}
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            ))}
-          </div>
-        </div>
+        <Skills />
       </section>
 
       <Roadmap />
