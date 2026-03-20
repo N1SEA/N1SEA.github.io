@@ -11,4 +11,4 @@
 // if (process.env.NODE_ENV !== 'production')
 //   globalForPrisma.prisma = prisma
 
-export const prisma = null;
+export const prisma = null as any;
